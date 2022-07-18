@@ -1,6 +1,7 @@
 #ifndef SARSA_H
 #define SARSA_H
 #include <iostream>
+#include <fstream>
 #include "Env.h"
 #include "QValues.h"
 #include "pbPlots.hpp"
@@ -14,7 +15,6 @@ void initQTable(QValues* , Environment*);
 void printQTable(QValues*, Environment* );
 void update_q_prev_state_sarsa(Environment*, Agent*, QValues*, int, int, double, double);
 int action_selection_sarsa(Agent*, int, double, QValues*);
-int make_plot_sarsa(vector<double>);
 
 void update_q_prev_state_sarsa(Environment* env, Agent* agent, QValues* Q_values, int action_taken, int action_taken2, double disc_factor, double learn_rate){
     int x_pos = agent->getPos().first;
@@ -66,7 +66,6 @@ vector<double> Sarsa(Environment* env, Agent* agent, double learn_rate, double d
         //cout << s;
     }   //Add the reward obtained by the agent to the cummulative reward of the agent in the current episode
 
-    if(make_plot_sarsa(finalrw)) cout << "Plot error" << endl;
     return finalrw;
 }
 
@@ -92,53 +91,6 @@ int action_selection_sarsa(Agent* agent, int action_sel, double exp_rate, QValue
     }
     return 0;
 }
-
-int make_plot_sarsa(vector<double> rewards){
-    bool success;
-    StringReference *errorMessage = new StringReference();
-	RGBABitmapImageReference *imageReference = CreateRGBABitmapImageReference();
-
-    vector<double> num_episodes;
-    for(int i = 0; i < rewards.size(); i++){
-        num_episodes.push_back(i);
-    }
-
-    ScatterPlotSeries *series = GetDefaultScatterPlotSeriesSettings();
-    series->xs = &num_episodes;
-	series->ys = &rewards;
-	series->linearInterpolation = false;
-	series->pointType = toVector(L"dots");
-    series->lineType = toVector(L"solid");
-	series->color = CreateRGBColor(0, 0, 1);
-
-    ScatterPlotSettings *settings = GetDefaultScatterPlotSettings();
-    settings->width = 1000;
-	settings->height = 600;
-	settings->autoBoundaries = true;
-	settings->autoPadding = true;
-	settings->title = toVector(L"Sarsa Training");
-	settings->xLabel = toVector(L"Episodes");
-	settings->yLabel = toVector(L"Rewards");
-	settings->scatterPlotSeries->push_back(series);
-
-	success = DrawScatterPlotFromSettings(imageReference, settings, errorMessage);
-
-    if(success){
-        vector<double> *pngdata = ConvertToPNG(imageReference->image);
-        WriteToFile(pngdata, "SarsaPlot.png");
-        DeleteImage(imageReference->image);
-	}else{
-	    cerr << "Error: ";
-        for(wchar_t c : *errorMessage->string){
-            wcerr << c;
-        }
-        cerr << endl;
-	}
-
-	return success ? 0 : 1;
-
-}
-
 
 
 #endif

@@ -2,13 +2,10 @@
 #define QLEARNING_H
 
 #include <iostream>
-#include <vector> 
 #include <fstream>
 #include "Env.h"
 #include "Agent.h"
 #include "QValues.h"
-#include "pbPlots.hpp"
-#include "supportLib.hpp"
 
 using namespace std; 
 
@@ -17,7 +14,6 @@ void initQTable(QValues* , Environment*);
 void printQTable(QValues*, Environment* );
 void update_q_prev_state(Environment*, Agent*, QValues*, int, double, double);
 int action_selection(Agent*, int, double, QValues*);
-int make_plot_qlearning(vector<double>);
 
 vector<double> Qlearning(Environment* env, Agent* agent, double learn_rate, double disc_factor, double exp_rate, double exp_discount, int num_episodes, int max_steps, int action_sel, ofstream* reward_output){
     QValues Q_values;
@@ -44,7 +40,6 @@ vector<double> Qlearning(Environment* env, Agent* agent, double learn_rate, doub
         *reward_output << s;
         //cout << s;
     }    
-    if(make_plot_qlearning(finalrw)) cout << "Plot error" << endl;
     return finalrw; 
 }
 
@@ -131,50 +126,5 @@ int action_selection(Agent* agent, int action_sel, double exp_rate, QValues* q_v
     return 0;
 }
 
-int make_plot_qlearning(vector<double> rewards){
-    bool success;
-    StringReference *errorMessage = new StringReference();
-	RGBABitmapImageReference *imageReference = CreateRGBABitmapImageReference();
-
-    vector<double> num_episodes;
-    for(int i = 0; i < rewards.size(); i++){
-        num_episodes.push_back(i);
-    }
-
-    ScatterPlotSeries *series = GetDefaultScatterPlotSeriesSettings();
-    series->xs = &num_episodes;
-	series->ys = &rewards;
-	series->linearInterpolation = false;
-	series->pointType = toVector(L"dots");
-    series->lineType = toVector(L"solid");
-	series->color = CreateRGBColor(0, 0, 1);
-
-    ScatterPlotSettings *settings = GetDefaultScatterPlotSettings();
-    settings->width = 1000;
-	settings->height = 600;
-	settings->autoBoundaries = true;
-	settings->autoPadding = true;
-	settings->title = toVector(L"Q-Leaning Training");
-	settings->xLabel = toVector(L"Episodes");
-	settings->yLabel = toVector(L"Rewards");
-	settings->scatterPlotSeries->push_back(series);
-
-	success = DrawScatterPlotFromSettings(imageReference, settings, errorMessage);
-
-    if(success){
-        vector<double> *pngdata = ConvertToPNG(imageReference->image);
-        WriteToFile(pngdata, "QLearningPlot.png");
-        DeleteImage(imageReference->image);
-	}else{
-	    cerr << "Error: ";
-        for(wchar_t c : *errorMessage->string){
-            wcerr << c;
-        }
-        cerr << endl;
-	}
-
-	return success ? 0 : 1;
-
-}
 
 #endif

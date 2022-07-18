@@ -11,6 +11,6 @@ Sarsa and Q-Learning in C++
 
 
 ## **Thanks:**
-* [@InductiveComputerScience](https://github.com/InductiveComputerScience/pbPlots) for [pbPlots](https://github.com/InductiveComputerScience/pbPlots)
+* [@InductiveComputerScience](https://github.com/InductiveComputerScience) for [pbPlots](https://github.com/InductiveComputerScience/pbPlots)
 
 
