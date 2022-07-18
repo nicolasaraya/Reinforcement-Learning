@@ -1,0 +1,68 @@
+Initial Q value of cell [0, 0] action 0 = 8
+Initial Q value of cell [0, 0] action 1 = 8
+Initial Q value of cell [0, 0] action 2 = 5
+Initial Q value of cell [0, 0] action 3 = 2
+Initial Q value of cell [0, 1] action 0 = 0
+Initial Q value of cell [0, 1] action 1 = 5
+Initial Q value of cell [0, 1] action 2 = 5
+Initial Q value of cell [0, 1] action 3 = 2
+Initial Q value of cell [0, 2] action 0 = 7
+Initial Q value of cell [0, 2] action 1 = 8
+Initial Q value of cell [0, 2] action 2 = 2
+Initial Q value of cell [0, 2] action 3 = 2
+Initial Q value of cell [1, 0] action 0 = 9
+Initial Q value of cell [1, 0] action 1 = 0
+Initial Q value of cell [1, 0] action 2 = 9
+Initial Q value of cell [1, 0] action 3 = 3
+Initial Q value of cell [1, 1] action 0 = 7
+Initial Q value of cell [1, 1] action 1 = 0
+Initial Q value of cell [1, 1] action 2 = 6
+Initial Q value of cell [1, 1] action 3 = 8
+Initial Q value of cell [1, 2] action 0 = 4
+Initial Q value of cell [1, 2] action 1 = 1
+Initial Q value of cell [1, 2] action 2 = 2
+Initial Q value of cell [1, 2] action 3 = 6
+Initial Q value of cell [2, 0] action 0 = 1
+Initial Q value of cell [2, 0] action 1 = 4
+Initial Q value of cell [2, 0] action 2 = 6
+Initial Q value of cell [2, 0] action 3 = 6
+Initial Q value of cell [2, 1] action 0 = 6
+Initial Q value of cell [2, 1] action 1 = 1
+Initial Q value of cell [2, 1] action 2 = 2
+Initial Q value of cell [2, 1] action 3 = 5
+Initial Q value of cell [2, 2] action 0 = 2
+Initial Q value of cell [2, 2] action 1 = 7
+Initial Q value of cell [2, 2] action 2 = 7
+Initial Q value of cell [2, 2] action 3 = 4
+Initial Q value of cell [3, 0] action 0 = 3
+Initial Q value of cell [3, 0] action 1 = 4
+Initial Q value of cell [3, 0] action 2 = 6
+Initial Q value of cell [3, 0] action 3 = 2
+Initial Q value of cell [3, 1] action 0 = 4
+Initial Q value of cell [3, 1] action 1 = 9
+Initial Q value of cell [3, 1] action 2 = 6
+Initial Q value of cell [3, 1] action 3 = 4
+Initial Q value of cell [3, 2] action 0 = 9
+Initial Q value of cell [3, 2] action 1 = 6
+Initial Q value of cell [3, 2] action 2 = 9
+Initial Q value of cell [3, 2] action 3 = 8
+ [31m0 [0m [31m0 [0m [31m0 [0m [31m0 [0m
+ [31m0 [0m [42m# [0m [31m0 [0m [31m0 [0m
+ [44m1 [0m [31m0 [0m [31m0 [0m [31m0 [0m
+
+||8 8 5 2||   ||0 5 5 2||   ||7 8 2 2||   ||0 0 0 0||   
+
+||9 0 9 3||   ||7 0 6 8||   ||4 1 2 6||   ||0 0 0 0||   
+
+||1 4 6 6||   ||6 1 2 5||   ||2 7 7 4||   ||0 0 0 0||   
+
+||9 8 5 2||   ||4 5 5 2||   ||7 8 2 2||   ||0 0 0 0||   
+
+||9 0 9 3||   ||7 0 6 8||   ||4 1 2 6||   ||0 0 0 0||   
+
+||1 4 6 6||   ||6 1 2 5||   ||2 7 7 4||   ||0 0 0 0||   
+
+Episode 3 Total reward obtained: -0.200000 Epsilon: 0.400000
+ [31m0 [0m [31m0 [0m [31m0 [0m [31m0 [0m
+ [44m1 [0m [42m# [0m [31m0 [0m [31m0 [0m
+ [31m0 [0m [31m0 [0m [31m0 [0m [31m0 [0m
